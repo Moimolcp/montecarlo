@@ -1,0 +1,54 @@
+<header class="header">
+  <h1>Montecarlo</h1>
+  <p>Non-deterministic method to calculate complex areas<p>
+</header>
+
+<div class="content">
+  
+  <div class="dragndrop">
+
+    <img class="mcanvas" src="assets/default-image.png"  [style.display]="loadingImage? 'none': 'block'">
+    <canvas class="mcanvas" #canvas  [style.display]="!loadingImage? 'none': 'block'"></canvas>
+    
+    <input
+    style="display: none"
+    accept="image/*"
+    type="file" (change)="onFileChanged(fileInput)"
+    #fileInput>
+  </div>
+
+  <div class="data">
+
+    <div class="buttonArea">
+      <button class="buttonUp" (click)="fileInput.click()">Upload Image</button>
+      <br/>
+      
+      <input #iterInput  (change)="updateIter(iterInput.value)" 
+       type="range"  min="100000" max="10000000" value="2000000" step="100000">
+      <b>Iterations:</b>
+      <p>{{iterations}}</p>
+    </div>
+
+    <div class="textArea">
+      <p><b>Total area:</b> <br>{{areaTotal}} px</p>
+      <p><b>Estimated internal area:</b> <br> {{areaIn.toFixed(2)}} px</p>
+      <p><b>Estimated internal area percentage:</b> <br>{{((areaIn/areaTotal)*100).toFixed(2)}}%</p>
+    </div>  
+
+  </div>
+  
+</div>
+
+
+<footer>
+ <a href="gitlink" target="_blank">
+    @GithubLink - Luis Castro
+  </a>
+</footer>
+
+
+
+
+
+
+
